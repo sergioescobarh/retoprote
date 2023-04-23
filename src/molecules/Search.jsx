@@ -1,20 +1,25 @@
-import React from 'react'
+import React from "react";
 
-export default function Search({search,setSearch,setProducts,initialProducts}) {
+export default function Search({
+  search,
+  setSearch,
+  setProducts,
+  setAllProducts,
+  allProducts,
+}) {
   const searcher = (event) => {
     setSearch(event.target.value);
-    console.log(event.target.value);
-    
-    const newProducts = initialProducts.filter((e)=>{
-      const newSearch = search.toLowerCase()
-      return e.title.includes(newSearch)
-    });
-    setProducts(newProducts)
 
+    const newProducts = allProducts.filter((e) => {
+      const newSearch = event.target.value.toLowerCase();
+      return e.title.toLowerCase().includes(newSearch);
+    });
+    setProducts(newProducts);
   };
 
-
   return (
-    <><input type="text" onChange={searcher}/></>
-  )
+    <>
+      <input type="text" onChange={searcher} />
+    </>
+  );
 }
