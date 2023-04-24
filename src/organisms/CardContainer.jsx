@@ -1,23 +1,21 @@
 import React from "react";
 import "./cardContainer.scss";
-import { useEffect, useState } from "react";
+import useAPIfetch from '../hooks/useAPIfetch';
+import { useState } from "react";
 import Card from "../molecules/Cards";
 import Search from "../molecules/Search";
+import Modal from '../modal/Modal';
+import Button from "../atoms/Button";
 const API = "https://fakestoreapi.com/products";
 
-export default function CardContainer() {
-  const [products, setProducts] = useState([]);
-  // to deliver to the search var without fetching the API again
-  const [allProducts, setAllProducts] = useState([]);
-  useEffect(() => {
-    fetch(API)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);setAllProducts(data);
-      });
-  }, []);
 
+export default function CardContainer() {
+  
+  const [products , setProducts , allProducts , setAllProducts] = useAPIfetch(API)
   const [search, setSearch] = useState("");
+  const [portal,setPortal] = useState(false);
+  const handlePortal = ()=> setPortal(!portal);
+
 
   return (
     <>
@@ -39,6 +37,14 @@ export default function CardContainer() {
           <Card image={e.image} title={e.title} price={e.price} key={e.id}/>
         ))}
       </div>
+      <div className='button' > <Button  handlePortal={handlePortal} text={'+'}/> </div>
+      
+
+      { portal && (<div className="modal"> <Modal> teletransportaciooon </Modal> </div>)}
+
+      
+
+      
     </>
   );
 }
