@@ -7,7 +7,7 @@ import CardContainer from '../organisms/CardContainer';
 export default function Home() {
     return (
     <div className='home'>
-        <header>  <Header/>  </header>
+        <Header/>  
         <main>
             <CardContainer/>
         </main>
