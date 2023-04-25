@@ -1,20 +1,17 @@
 import React from "react";
 
 export default function Search({
-  search,
   setSearch,
-  setProducts,
-  setAllProducts,
-  allProducts,
+  setItems,
+  allItems,
 }) {
   const searcher = (event) => {
-    setSearch(event.target.value);
 
-    const newProducts = allProducts.filter((e) => {
+    const newProducts = allItems.filter((e) => {
       const newSearch = event.target.value.toLowerCase();
       return e.title.toLowerCase().includes(newSearch);
     });
-    setProducts(newProducts);
+    setItems(newProducts);
   };
 
   return (

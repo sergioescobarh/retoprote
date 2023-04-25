@@ -1,18 +1,14 @@
 import React from "react";
 import "./cardContainer.scss";
-import useAPIfetch from '../hooks/useAPIfetch';
 import { useState } from "react";
 import Card from "../molecules/Cards";
 import Search from "../molecules/Search";
 import Modal from '../modal/Modal';
 import Button from "../atoms/Button";
-const API = "https://fakestoreapi.com/products";
 
 
-export default function CardContainer() {
-  
-  const [products , setProducts , allProducts , setAllProducts] = useAPIfetch(API)
-  const [search, setSearch] = useState("");
+export default function CardContainer({items , setItems , allItems , setAllItems}) {
+  console.log(items);
   const [portal,setPortal] = useState(false);
   const handlePortal = ()=> setPortal(!portal);
 
@@ -24,16 +20,13 @@ export default function CardContainer() {
       <span>
         {" "}
         <Search
-          search={search}
-          setSearch={setSearch}
-          setProducts={setProducts}
-          allProducts={allProducts}
-          setAllProducts={setAllProducts}
+          setItems={setItems}
+          allItems={allItems}
         />
       </span>
 
       <div className="container">
-        {products.map((e) => (
+        {items.map((e) => (
           <Card image={e.image} title={e.title} price={e.price} key={e.id}/>
         ))}
       </div>

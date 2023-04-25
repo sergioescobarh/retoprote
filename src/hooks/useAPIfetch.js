@@ -1,19 +1,19 @@
 import { useState,useEffect } from "react";
 
 const useAPIfeth = (API) => {
-    const [products, setProducts] = useState([]);
+    const [items, setItems] = useState([]);
   // to deliver to the search var without fetching the API again
-  const [allProducts, setAllProducts] = useState([]);
+  const [allItems, setAllItems] = useState([]);
   useEffect(() => {
     function getProducts (API) {
         fetch(API)
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data);setAllProducts(data);
+        setItems(data);setAllItems(data);
         
     })}
     getProducts(API)}, [API]);
     
-  return ([products , setProducts , allProducts , setAllProducts] )
+  return ([items , setItems , allItems , setAllItems] )
 };
 export default useAPIfeth;
