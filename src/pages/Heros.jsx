@@ -33,27 +33,29 @@ export default function Heros() {
       // setItems(array)
       console.log(array);
     };
-    let heros = Promise.all(array.map(item =>
+    
+    Promise.all(array.map(item =>
       fetch(item)
         .then(response => response.json())
     )).then(data => {
-      
-      console.log(data);
+      setItems(data)
+      setAllItems(data)
+      console.log('data',data);
     }).catch(error => {
       console.log(error);
-    });
-     setItems(heros);
-     setAllItems(heros);
+    })
+    
+     
   }
   console.log('items',items);
     
-    
+  
 
   return (
     <div className='heros'>
       <Header  />
       <button onClick={list}>heros</button>
-      
+      {items.map((i)=> <img src={i.image.url} alt="" key={i.id}/> )}
       
           
     </div >
