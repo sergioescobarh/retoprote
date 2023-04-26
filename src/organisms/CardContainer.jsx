@@ -8,7 +8,7 @@ import Button from "../atoms/Button";
 
 
 export default function CardContainer({items , setItems , allItems , setAllItems}) {
-  console.log(items);
+  
   const [portal,setPortal] = useState(false);
   const handlePortal = ()=> setPortal(!portal);
 

@@ -1,30 +1,61 @@
-
+import { useEffect, useState } from 'react';
 
 import Header from '../organisms/Header';
-import CardContainer from '../organisms/CardContainer';
-import useApiHeros from '../hooks/useApiHeros';
+// import CardContainer from '../organisms/CardContainer';
+// import useApiHeros from '../hooks/useApiHeros';
 
 export default function Heros() {
   
-  
-  
-  // const [items , setItems] =useState([]);
-  // const [allItems , setAllItems] =useState([]);
-  const {items , setItems , allItems , setAllItems} = useApiHeros();
-  // useEffect(
-  //   ()=>{
-    
-  //   //   fetch('https://www.superheroapi.com/api.php/9787633674583710/2')
-  //   // .then(response=>response.json())
-  //   // .then(data=> {setAllItems([data]);setItems([data]);console.log(data)})
-  //   },[items,allItems])
-  //   console.log(items);
+  const [items , setItems] =useState([]);
+  const [allItems , setAllItems] =useState([]);
 
+  // const listHeros = ()=> {
+    
+  //     const heros = [1,2,3,4,5,6,7,8,9,10]; 
+  //     let list =heros.map((e)=>{
+  //       let hero=null;
+  //       fetch('https://www.superheroapi.com/api.php/9787633674583710/'+e)
+  //       .then(response=>response.json())
+  //     .then(data => hero=data)
+  //     return hero
+  //     })
+  //     setItems(list)
+  //     console.log(items)
+  //     return {items,allItems}
+    
+  // };
+  
+  const array =[]
+  const list = ()=>{
+    for (let i=1;i<20;i++){
+      const url = 'https://www.superheroapi.com/api.php/9787633674583710/'+ i;
+      array.push(url);
+      // setItems(array)
+      console.log(array);
+    };
+    let heros = Promise.all(array.map(item =>
+      fetch(item)
+        .then(response => response.json())
+    )).then(data => {
+      
+      console.log(data);
+    }).catch(error => {
+      console.log(error);
+    });
+     setItems(heros);
+     setAllItems(heros);
+  }
+  console.log('items',items);
+    
+    
 
   return (
     <div className='heros'>
-      <Header/>
-      <CardContainer items={items}  setItems={setItems}  allItems={allItems}  setAllItems={setAllItems} />
-    </div>
+      <Header  />
+      <button onClick={list}>heros</button>
+      
+      
+          
+    </div >
   )
 }

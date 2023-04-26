@@ -10,7 +10,7 @@ const API = "https://fakestoreapi.com/products";
 export default function Home() {
     const [items , setItems , allItems , setAllItems] = useAPIfetch(API)
 
-console.log('este',items);
+
     return (
     <div className='home'>
         <Header/>  
