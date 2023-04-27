@@ -1,0 +1,17 @@
+
+.imageContainer {
+    background-color: bisque;
+    border: solid 1px black;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div {
+        width: 90%;
+        img {
+            width: 95%;
+        }
+    }
+    
+}

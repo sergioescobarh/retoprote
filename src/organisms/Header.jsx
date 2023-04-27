@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <header>
-          <Link to='/'>home</Link>
-          <Link to='/heros'>heros</Link>
+          <Link className='link' to='/'>Products</Link>
+          <Link className='link' to='/heros'>Heros</Link>
     </header>
   )
 }

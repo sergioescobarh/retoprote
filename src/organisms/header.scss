@@ -1,11 +1,17 @@
 
 header {
-    background-color: aqua;
+    background-color:rgba(30, 29, 35, 0.833);
     padding: 10px;
-    height: 10%;
-    margin-bottom: 10px;
+    height: 10vh;
     display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    .link {
+        background-color: white;
+        padding: 10px;
+        border-radius: 70%;
+        color: black;
+        text-decoration: none;
+    }
 }
