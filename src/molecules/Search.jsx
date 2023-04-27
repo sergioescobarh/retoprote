@@ -9,7 +9,7 @@ export default function Search({
 
     const newProducts = allItems.filter((e) => {
       const newSearch = event.target.value.toLowerCase();
-      return e.title.toLowerCase().includes(newSearch);
+      return (e.title||e.name).toLowerCase().includes(newSearch);
     });
     setItems(newProducts);
   };

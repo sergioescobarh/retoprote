@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './heros.scss';
 import Header from '../organisms/Header';
 import HerosContainer from '../organisms/HerosContainer';
+import Search from '../molecules/Search';
 // import CardContainer from '../organisms/CardContainer';
 // import useApiHeros from '../hooks/useApiHeros';
 
@@ -50,7 +51,11 @@ export default function Heros() {
       
       {poster===false && 
         <section className='cardsContainer'>
-          {items.map((i)=> <HerosContainer image={i.image.url} powerstats={i.powerstats} key={i.id} />   )}
+          <span>
+            <h1>Heroes</h1>
+            <Search setItems={setItems} allItems={allItems} />
+            </span>
+          {items.map((i)=> <HerosContainer name={i.name} image={i.image.url} powerstats={i.powerstats} key={i.id} />   )}
         </section>}
       
       
