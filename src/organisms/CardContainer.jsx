@@ -5,6 +5,7 @@ import Card from "../molecules/Cards";
 import Search from "../molecules/Search";
 import Modal from "../modal/Modal";
 import Button from "../atoms/Button";
+import ProductForm from '../organisms/ProductForm';
 
 export default function CardContainer({
   items,
@@ -28,7 +29,7 @@ export default function CardContainer({
 
       <div className="container">
         {items.map((e) => (
-          <Card image={e.image} title={e.title} price={e.price} key={e.id} />
+          <Card image={e.image} title={e.title} price={e.price} id={e.id} items={items} allItems={allItems} setItems={setItems} setAllItems={setAllItems} key={e.id} />
         ))}
       </div>
       <div className="button">
@@ -39,7 +40,7 @@ export default function CardContainer({
       {portal && (
         <div className="modal">
           {" "}
-          <Modal> teletransportaciooon </Modal>{" "}
+          <Modal> <ProductForm allItems={allItems} setItems={setItems} setAllItems={setAllItems} setPortal={setPortal} portal={portal}/> </Modal>{" "}
         </div>
       )}
     </>
