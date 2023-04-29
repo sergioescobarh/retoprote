@@ -40,7 +40,8 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "webpack-node-externals": "^3.0.0"
   },
-  "homepage": "https://sergioescobarh.github.io/retoprote"
+  "homepage": "https://sergioescobarh.github.github.io/retoprote"
 }
