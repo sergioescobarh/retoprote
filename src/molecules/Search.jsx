@@ -16,7 +16,7 @@ export default function Search({
 
   return (
     <>
-      <input type="text" onChange={searcher} />
+      <input type="text" onChange={searcher}  placeholder="¿Buscas alguno en especial?"/>
     </>
   );
 }

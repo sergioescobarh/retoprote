@@ -1,29 +1,21 @@
 import './card.scss';
-import React, { useEffect } from 'react'
+
 
 export default function Cards({image,title,price,id, items,allItems, setItems, setAllItems}) {
   
-
-  
-    const deleteOne = ()=>{
-      let products = allItems;
-      console.log(id);
-      products.splice(id,1);
-      console.log(products);
-        setAllItems(products);
-        setItems(products);
-        return {allItems, items}
-    }
-
-  
-
+    const deletOne = ()=>{
+     const remainingProducts = allItems;
+     console.log('este es',remainingProducts.filter((i)=> i.id!==id));
+     setAllItems(remainingProducts.filter((i)=> i.id!==id));
+     setItems(remainingProducts.filter((i)=> i.id!==id));
+    };
 
   return (
     <div className='card'>
         <img className='img' src={image} alt="" />
         <h4>{title}</h4>
         <div>{price}$</div>
-        <button type='button' onClick={deleteOne}>Eliminar</button>
+        <button type='button' onClick={deletOne}>Eliminar</button>
     </div>
   )
 }
