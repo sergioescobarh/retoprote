@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/retoprote/static/css/main.d8cdeff1.css",
+    "main.js": "/retoprote/static/js/main.c5c4739c.js",
+    "index.html": "/retoprote/index.html",
+    "main.d8cdeff1.css.map": "/retoprote/static/css/main.d8cdeff1.css.map",
+    "main.c5c4739c.js.map": "/retoprote/static/js/main.c5c4739c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8cdeff1.css",
+    "static/js/main.c5c4739c.js"
+  ]
+}
